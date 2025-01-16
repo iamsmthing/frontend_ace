@@ -4,7 +4,7 @@ import { PostProject, UserPost } from "../types/project";
 
 
 
-export async function createPost(userId:string,title:string,description:string,imageUrl:string,token:string):Promise<UserPost>{
+export async function createPost(userId:string,title:string,description:string,imageUrl:string,token:string):Promise<UserPost[]>{
   const response=await fetch('/api/v1/api/post/createPost',{
     method: "POST",
     headers: { "Content-Type": "application/json" ,"Authorization": `Bearer ${token}`},

@@ -43,9 +43,10 @@ const colors = [
 interface PostEditorProps {
   onSubmit: (data: { title: string; content: string; images: string[] }) => void
   isLoading:boolean
+  clearContent:boolean
 }
 
-export default function PostEditor({ onSubmit,isLoading }: PostEditorProps) {
+export default function PostEditor({ onSubmit,isLoading,clearContent }: PostEditorProps) {
   const [title, setTitle] = useState('')
   const [images, setImages] = useState<string[]>([])
   const [charCount, setCharCount] = useState(0)
@@ -98,7 +99,8 @@ export default function PostEditor({ onSubmit,isLoading }: PostEditorProps) {
         images
       })
        // Reset fields if not loading
-    if (!isLoading) {
+    if (clearContent) {
+      console.log(clearContent)
         setTitle('');
         setImages([]);
         editor.commands.clearContent(); // Clear the editor content

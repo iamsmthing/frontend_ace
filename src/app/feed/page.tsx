@@ -37,6 +37,7 @@ import { PostProject } from "@/lib/types/project";
 export default function FeedPage() {
   const [post, setPost] = useState<any>(feedData);
   const [sortBy, setSortBy] = useState("trending");
+  const[ clearContent,setClearContent]=useState(false);
   const { user } = useAuth();
   const [isPosting, setIsPosting] = useState(false);
   const token = user?.token as string;
@@ -63,6 +64,11 @@ export default function FeedPage() {
   const handleUpvote = async(postId: string) => {
 
       const upvote=await upvotePost(userId,postId,token)
+      if(upvote){
+        await refetch();
+        toast.success("Post upvoted successfully");
+      }
+
     // setPosts(
     //   post.map((post: any) =>
     //     post.id === postId ? { ...post, upvotes: post?.upvotes! + 1 } : post
@@ -89,15 +95,14 @@ export default function FeedPage() {
       const { title, images, content: description } = data;
       const uploadedUrl = await uploadToCloudinary(images);
       const newPost=await createPost(userId, title, description, uploadedUrl, user?.token);
-      // const allPosts = await fetchAllPosts(user?.token);
-      // console.log(allPosts);
-        // Prepend the new post to the existing posts
-      // Update the posts in the hook
-      // setPosts((prevPosts: any) => [newPost, ...prevPosts]);
-      // Refetch posts after a successful creation
       await refetch();
+      if(newPost.length>0){
+
+        toast.success('Post created successfully!');
+        setIsPosting(false);
+        setClearContent(true);
+      }
     
-      toast.success('Post created successfully!');
     } catch (error) {
       toast.error('Failed to create post.');
     }
@@ -150,6 +155,7 @@ export default function FeedPage() {
               <PostEditor
                 onSubmit={handlePostSubmit}
                 isLoading={isPosting}
+                clearContent={clearContent}
               />
             </div>
 
