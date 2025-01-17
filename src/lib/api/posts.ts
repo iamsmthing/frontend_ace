@@ -52,3 +52,16 @@ export const upvotePost=async(userId:string,postId:string,token:string)=>{
   }
   return response.json();
 }
+
+
+export async function getAllComments (token:string,id:string):Promise<any>{
+  const response=await fetch(`/api/v1/api/post/comments/${id}`,{
+    method: "GET",
+    headers: { "Content-Type": "application/json" ,"Authorization": `Bearer ${token}`},
+  });
+  if(!response.ok){
+    throw new Error('failed to fetch posts');
+  }
+  return response.json();
+}
+

@@ -9,6 +9,8 @@ import { ThumbsUp, MessageSquare, Share2, MoreHorizontal } from "lucide-react"
 import { PostMenu } from "./post-menu"
 import { useAuth } from "@/contexts/auth-context"
 import { RenderHtml, timeAgo } from "@/lib/helpers/util-functions"
+import { useState } from "react"
+import { CommentDrawer } from "./comment-drawer"
 
 
 interface ProjectPostProps {
@@ -18,7 +20,7 @@ interface ProjectPostProps {
 }
 
 export function ProjectPost({ post, onUpvote ,onDelete}: ProjectPostProps) {
-
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const {user}=useAuth();
 
    const isUpvotedByCurrentUser=(upvote:any):Boolean=>{
@@ -66,13 +68,20 @@ export function ProjectPost({ post, onUpvote ,onDelete}: ProjectPostProps) {
           <ThumbsUp className="h-4 w-4 mr-2 " />
           {post.upvotes?.length}
         </Button>
-        <Button variant="ghost" size="sm" className="h-8">
+        <Button variant="ghost" size="sm" className="h-8" onClick={() => setIsDrawerOpen(true)}>
           <MessageSquare className="h-4 w-4 mr-2" />
-          {post.comments?post.comments:0}
+          {post?.comments?.length}
         </Button>
         <Button variant="ghost" size="sm" className="h-8 ml-auto">
           <Share2 className="h-4 w-4" />
         </Button>
+      {isDrawerOpen &&<CommentDrawer
+        isOpen={isDrawerOpen}
+        key={post.id}
+        onClose={() => setIsDrawerOpen(false)}
+        commentId={post?.id}
+        
+      />}
       </div>
     </Card>
   )

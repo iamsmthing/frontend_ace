@@ -143,7 +143,7 @@ export default function PostEditor({ onSubmit,isLoading,clearContent }: PostEdit
         placeholder="What are you working on...."
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        className="bg-transparent border-none text-lg placeholder:text-zinc-500"
+        className="bg-transparent border-none text-lg px-0  placeholder:text-zinc-500"
       />
 
       {editor && (

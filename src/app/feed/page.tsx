@@ -105,16 +105,19 @@ export default function FeedPage() {
     
     } catch (error) {
       toast.error('Failed to create post.');
+      setIsPosting(false);
+      setIsPosting(false);
     }
     finally{
       setIsPosting(false);
+      setClearContent(false);
     }
   };
 
 
   const handleDeletePost = async (postId: string,token:string) => {
     try {  
-    await deletePost(postId,token);
+       await deletePost(postId,token);
       setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
       toast.success('Post deleted successfully!');
     } catch (error) {

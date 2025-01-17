@@ -1,14 +1,18 @@
+'use client'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Github, Linkedin, Twitter, DiscIcon as Discord } from 'lucide-react'
+import { usePathname } from "next/navigation"
 
 export function Footer() {
+  const path=usePathname();
+  console.log(path)
   return (
-    <footer className="bg-background border-t">
+    <>
+    {path!=='/feed' &&<footer className="bg-background border-t">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-          {/* Newsletter Section */}
+        <div  className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="md:col-span-2">
             <Link href="/" className="inline-block mb-6">
               <h3 className="text-xl font-bold">Frontend ACE</h3>
@@ -26,7 +30,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Navigation Links */}
           <div>
             <h4 className="font-semibold mb-4">Practice</h4>
             <ul className="space-y-2">
@@ -85,7 +88,8 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </footer>}
+    </>
   )
 }
 
