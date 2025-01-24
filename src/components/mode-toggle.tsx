@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Moon, Sun, Leaf, Sparkles } from "lucide-react"
+import { Moon, Sun, Leaf, Sparkles, Flame } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
@@ -39,6 +39,7 @@ export function ModeToggle() {
           {currentTheme === "dark" && <Moon className="h-[1.2rem] w-[1.2rem]" />}
           {currentTheme === "forest" && <Leaf className="h-[1.2rem] w-[1.2rem]" />}
           {currentTheme === "royal" && <Sparkles className="h-[1.2rem] w-[1.2rem]" />}
+          {currentTheme === "sepia" && <Flame className="h-[1.2rem] w-[1.2rem]" />}
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
@@ -58,6 +59,10 @@ export function ModeToggle() {
         <DropdownMenuItem onClick={() => setTheme("royal")}>
           <Sparkles className="mr-2 h-4 w-4" />
           Royal
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("sepia")}>
+          <Flame className="mr-2 h-4 w-4" />
+          Warm
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("system")}>
           <Sun className="mr-2 h-4 w-4" />

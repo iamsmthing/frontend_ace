@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { PostProject } from "@/lib/types/project"
-import { ThumbsUp, MessageSquare, Share2, MoreHorizontal } from "lucide-react"
+import { ThumbsUp, MessageSquare, Share2, MoreHorizontal, ArrowUp } from "lucide-react"
 import { PostMenu } from "./post-menu"
 import { useAuth } from "@/contexts/auth-context"
 import { RenderHtml, timeAgo } from "@/lib/helpers/util-functions"
@@ -65,7 +65,7 @@ export function ProjectPost({ post, onUpvote ,onDelete}: ProjectPostProps) {
 
       <div className="flex items-center gap-4 mt-4 pt-4 border-t">
         <Button variant="ghost" size="sm" className={`h-8 ${isUpvotedByCurrentUser(post.upvotes) ?'bg-primary text-primary-foreground':''}`} onClick={onUpvote}>
-          <ThumbsUp className="h-4 w-4 mr-2 " />
+          <ArrowUp className="h-4 w-4 mr-2 " />
           {post.upvotes?.length}
         </Button>
         <Button variant="ghost" size="sm" className="h-8" onClick={() => setIsDrawerOpen(true)}>
@@ -79,7 +79,7 @@ export function ProjectPost({ post, onUpvote ,onDelete}: ProjectPostProps) {
         isOpen={isDrawerOpen}
         key={post.id}
         onClose={() => setIsDrawerOpen(false)}
-        commentId={post?.id}
+        postId={post?.id}
         
       />}
       </div>

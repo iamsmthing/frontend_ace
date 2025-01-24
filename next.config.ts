@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin'
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+    ],
+  },
   reactStrictMode: false,
   output: "standalone",
   async rewrites() {

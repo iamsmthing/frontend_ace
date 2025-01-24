@@ -26,7 +26,7 @@ export function PracticeProblemClient({ problem }: PracticeProblemClientProps) {
           <ProblemDescription problem={problem} />
         </ResizablePanel>
         <ResizableHandle />
-        <ResizablePanel defaultSize={50}>
+        <ResizablePanel defaultSize={70}>
           <CodeEditor />
         </ResizablePanel>
       </ResizablePanelGroup>

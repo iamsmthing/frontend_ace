@@ -15,6 +15,7 @@ import { CheckCircle2 } from "lucide-react"
 import { LoadingOverlay } from "../ui/loading-overlay"
 import { useAuth } from "@/contexts/auth-context"
 import { Leaderboard } from "../leaderboard/leaderboard"
+import Link from "next/link"
 
 type Difficulty = "Easy" | "Medium" | "Hard";
 
@@ -158,12 +159,12 @@ export default function ProblemsPage() {
         <Badge className={difficultyColors[problem.difficulty]}>
           {problem.difficulty}
         </Badge>
-        <a 
+        <Link 
           href={`/practice/${problem.id}`} 
           className="text-sm text-primary hover:underline"
         >
           {problem.progress?.some(p => p.isCompleted)? 'Review Solution →' : 'Solve Challenge →'}
-        </a>
+        </Link>
       </div>
     </Card>
         ))}

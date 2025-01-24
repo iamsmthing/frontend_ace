@@ -9,3 +9,4 @@ export async function getProject(id: string): Promise<Project> {
   console.log(response)
   return response.json();
 }
+

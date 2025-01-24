@@ -104,6 +104,28 @@ body {
     --input: 280 20% 90%;
     --ring: 267 75% 55%;
   }
+  .sepia {
+    --background: 30 50% 92%;          /* Light sepia beige */
+  --foreground: 30 20% 20%;          /* Deep brown text */
+  --card: 30 45% 90%;                /* Warm beige for cards */
+  --card-foreground: 30 25% 18%;     /* Darker brown for card text */
+  --popover: 30 45% 88%;             /* Light muted beige popovers */
+  --popover-foreground: 30 25% 18%;  /* Darker brown text */
+  --primary: 25 60% 35%;             /* Deep amber for highlights */
+  --primary-foreground: 30 20% 90%;  /* Light text on primary */
+  --secondary: 30 30% 85%;           /* Muted tan */
+  --secondary-foreground: 30 25% 20%;/* Deep warm brown */
+  --muted: 30 30% 80%;               /* Muted sand */
+  --muted-foreground: 30 20% 40%;    /* Darker muted text */
+  --accent: 25 50% 45%;              /* Golden-brown for accents */
+  --accent-foreground: 30 20% 92%;   /* Light text on accents */
+  --destructive: 0 60% 50%;          /* Soft red for warnings */
+  --destructive-foreground: 30 20% 95%; /* Light text for warnings */
+  --border: 30 30% 75%;              /* Light brown-gray borders */
+  --input: 30 30% 75%;               /* Muted brown-gray input fields */
+  --ring: 25 50% 50%;                /* Golden-brown ring */
+  }
+
 }
 
 @layer base {

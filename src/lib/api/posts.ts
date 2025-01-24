@@ -65,3 +65,14 @@ export async function getAllComments (token:string,id:string):Promise<any>{
   return response.json();
 }
 
+export const createComment=async(token:string,userId:string,postId:string,content:string,parentCommentId?:string|null)=>{
+  const response=await fetch('/api/v1/api/post/comments',{
+    method: "POST",
+    headers: { "Content-Type": "application/json" ,"Authorization": `Bearer ${token}`},
+    body: JSON.stringify({userId,postId,content,parentCommentId})
+  })
+  if(!response.ok){
+    throw new Error('failed to fetch posts');
+  }
+  return response.json();
+}
