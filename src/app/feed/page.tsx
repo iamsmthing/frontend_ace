@@ -25,14 +25,13 @@ import {
 import { ScrollArea } from "../../components/ui/scroll-area";
 import { Textarea } from "../../components/ui/textarea";
 import PostEditor from "../../components/feed/post-editor";
-import { useAuth } from "@/contexts/auth-context";
+import { useAuth } from "../../contexts/auth-context";
 import { LoadingOverlay } from "../../components/ui/loading-overlay";
 import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { uploadToCloudinary } from "@/lib/helpers/upload";
-import { createPost, deletePost, fetchAllPosts, upvotePost } from "@/lib/api/posts";
-import { usePosts } from "@/hooks/use-posts";
-import { PostProject } from "@/lib/types/project";
+import { uploadToCloudinary } from "../../lib/helpers/upload";
+import { createPost, deletePost, fetchAllPosts, upvotePost } from "../../lib/api/posts";
+import { usePosts } from "../../hooks/use-posts";
 
 export default function FeedPage() {
   const [post, setPost] = useState<any>(feedData);

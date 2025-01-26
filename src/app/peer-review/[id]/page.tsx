@@ -2,11 +2,10 @@
 
 import { useState } from "react"
 import { useRouter,useParams, notFound } from "next/navigation"
-import ProjectPageClient from "@/components/projects/project-page-client"
-import { useAuth } from "@/contexts/auth-context"
-import { LoadingOverlay } from "@/components/ui/loading-overlay"
-import { usePeerData } from "@/hooks/use-peer"
-import ReviewForm from "@/components/peerReview/review-form"
+import { useAuth } from "../../../contexts/auth-context"
+import { LoadingOverlay } from "../../../components/ui/loading-overlay"
+import { usePeerData } from "../../../hooks/use-peer"
+import ReviewForm from "../../../components/peerReview/review-form"
 
 export default function ProjectGuidePage() {
   const params = useParams();
