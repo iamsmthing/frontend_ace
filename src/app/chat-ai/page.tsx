@@ -5,7 +5,7 @@ import { ChatCompletionStream } from "together-ai/lib/ChatCompletionStream";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Bot, Send, User, Loader2 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 import MarkdownRenderer from "@/components/chat-ai/markdown-renderer";
 import { useAuth } from "@/contexts/auth-context";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
