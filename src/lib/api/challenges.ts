@@ -1,4 +1,5 @@
 "use client";
+import { LeaderboardUser } from "@/components/leaderboard/leaderboard";
 import { Problem } from "@/lib/types/problem";
 
 export async function getChallenge(id: string,userId:string): Promise<Problem> {
@@ -32,4 +33,15 @@ export async function markAsComplete(userId:string,challengeId:string,isComplete
     throw new Error('failed to fetch problems');
   }
   return response.json();
+}
+export const getLeaderboard=async(token:string):Promise<LeaderboardUser[]>=>{
+  const response=await fetch('/api/v1/api/fetchLeaderBoardScore',{
+    method:'GET',
+    headers: { "Content-Type": "application/json" ,"Authorization": `Bearer ${token}`},
+  })
+  if(!response.ok){
+    throw new Error('failed to fetch leaderboard');
+  }
+
+  return response.json()
 }

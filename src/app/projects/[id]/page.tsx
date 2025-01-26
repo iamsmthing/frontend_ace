@@ -2,13 +2,6 @@
 
 import { useState } from "react"
 import { useRouter,useParams, notFound } from "next/navigation"
-import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Checkbox } from "@/components/ui/checkbox"
-import { projectsData } from "@/lib/projects-data"
-import { CheckCircle2, Github, Globe, ArrowLeft } from "lucide-react"
-import { Progress } from "@/components/ui/progress"
 import ProjectPageClient from "@/components/projects/project-page-client"
 import { useAuth } from "@/contexts/auth-context"
 import { LoadingOverlay } from "@/components/ui/loading-overlay"

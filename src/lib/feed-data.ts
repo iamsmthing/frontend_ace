@@ -1,4 +1,4 @@
-import { PostProject } from "./types/project"
+import { PostProject } from "@/lib/types/project"
 
 export const feedData: PostProject[] = [
   

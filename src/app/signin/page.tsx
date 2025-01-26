@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { useAuth } from "../../contexts/auth-context";
+import { useAuth } from "@/contexts/auth-context";
 import { LoadingOverlay } from "@/components/ui/loading-overlay";
 
 const signInSchema = z.object({

@@ -1,7 +1,7 @@
 'use client';
-import PeerReviewsList from '../../components/peerReview/peer-reviews-list';
-import SearchAndFilter from '../../components/peerReview/search-and-filter';
-import NotificationCenter from '../../components/peerReview/notification-center';
+import PeerReviewsList from '@/components/peerReview/peer-reviews-list';
+import SearchAndFilter from '@/components/peerReview/search-and-filter';
+import NotificationCenter from '@/components/peerReview/notification-center';
 import { Metadata } from 'next'
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
@@ -20,7 +20,7 @@ export default function PeerReviewsPage() {
             <div className="flex flex-col gap-2">
 
             <h1 className="text-3xl font-bold">Peer Reviews</h1>
-            <p className='text-md'>Review the challenges of other users to gain up to 5 points per review. </p>
+            <p className='text-md'>Review the challenges of other users to gain up to 2 points per review. </p>
             </div>
             <div className="flex items-center space-x-4">
               <NotificationCenter />

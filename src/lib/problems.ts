@@ -1,4 +1,4 @@
-import type { Problem } from "../lib/types/problem"
+import type { Problem } from "@/lib/types/problem"
 
 export const problems: Problem[] = [
   {

@@ -1,6 +1,6 @@
 import type { Problem } from "@/lib/types/problem"
 import { useState } from "react"
-import { Button } from "../ui/button"
+import { Button } from "@/components/ui/button"
 import { problems } from "@/lib/problems"
 import { markAsComplete } from "@/lib/api/challenges"
 import { useAuth } from "@/contexts/auth-context"

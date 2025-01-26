@@ -1,4 +1,4 @@
-import { PostProject, UserPost } from "../types/project";
+import { PostProject, UserPost } from "@/lib/types/project";
 
 
 
