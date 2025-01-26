@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { ProjectPost } from "@/components/feed/project-post";
-import { feedData } from "@/lib/feed-data";
+import { Card } from "../../components/ui/card";
+import { Input } from "../../components/ui/input";
+import { Button } from "../../components/ui/button";
+import { ProjectPost } from "../../components/feed/project-post";
+import { feedData } from "../../lib/feed-data";
 import {
   PlusCircle,
   TrendingUp,
@@ -21,12 +21,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Textarea } from "@/components/ui/textarea";
-import PostEditor from "@/components/feed/post-editor";
+} from "../../components/ui/select";
+import { ScrollArea } from "../../components/ui/scroll-area";
+import { Textarea } from "../../components/ui/textarea";
+import PostEditor from "../../components/feed/post-editor";
 import { useAuth } from "@/contexts/auth-context";
-import { LoadingOverlay } from "@/components/ui/loading-overlay";
+import { LoadingOverlay } from "../../components/ui/loading-overlay";
 import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { uploadToCloudinary } from "@/lib/helpers/upload";

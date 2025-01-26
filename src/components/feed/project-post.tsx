@@ -1,15 +1,15 @@
 "use client"
 
-import { Card } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { PostProject } from "@/lib/types/project"
+import { Card } from "../../components/ui/card"
+import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar"
+import { Button } from "../../components/ui/button"
+import { PostProject } from "../../lib/types/project"
 import { ThumbsUp, MessageSquare, Share2, MoreHorizontal, ArrowUp } from "lucide-react"
-import { PostMenu } from "@/components/feed/post-menu"
-import { useAuth } from "@/contexts/auth-context"
-import { RenderHtml, timeAgo } from "@/lib/helpers/util-functions"
+import { PostMenu } from "../../components/feed/post-menu"
+import { useAuth } from "../../contexts/auth-context"
+import { RenderHtml, timeAgo } from "../../lib/helpers/util-functions"
 import { useState } from "react"
-import { CommentDrawer } from "@/components/feed/comment-drawer"
+import { CommentDrawer } from "../../components/feed/comment-drawer"
 
 interface ProjectPostProps {
   post:PostProject

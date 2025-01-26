@@ -1,5 +1,5 @@
 "use client";
-import { Project } from "@/lib/types/project";
+import { Project } from "../../lib/types/project";
 
 export async function getProject(id: string): Promise<Project> {
   const response = await fetch(`/api/api/project/${id}`);

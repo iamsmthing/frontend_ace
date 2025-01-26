@@ -2,16 +2,16 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { Button } from "@/components/ui/button"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
-import { ChallengeSubmission } from '@/hooks/use-pending-review'
-import { submitPeerReview } from '@/lib/api/peer'
-import { useAuth } from '@/contexts/auth-context'
+import { Button } from "../../components/ui/button"
+import { Textarea } from "../../components/ui/textarea"
+import { Label } from "../../components/ui/label"
+import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/tabs"
+import { ScrollArea } from "../../components/ui/scroll-area"
+import { Dialog, DialogContent, DialogTitle } from '../../components/ui/dialog'
+import { ChallengeSubmission } from '../../hooks/use-pending-review'
+import { submitPeerReview } from '../../lib/api/peer'
+import { useAuth } from '../../contexts/auth-context'
 import { toast } from 'sonner'
 
 interface ReviewFormProps {

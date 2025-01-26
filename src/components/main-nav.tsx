@@ -2,14 +2,14 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { cn } from "../lib/utils";
+import { Button } from "../components/ui/button";
 import { BookOpenCheck, CodeIcon, MessagesSquare, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useAuth } from "@/contexts/auth-context";
-import { UserMenu } from "@/components/user-menu";
+import { useAuth } from "../contexts/auth-context";
+import { UserMenu } from "../components/user-menu";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "./ui/navigation-menu";
-import { ModeToggle } from "@/components/mode-toggle";
+import { ModeToggle } from "../components/mode-toggle";
 
 export function MainNav() {
   const pathname = usePathname();

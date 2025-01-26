@@ -1,6 +1,6 @@
 "use client";
-import { LeaderboardUser } from "@/components/leaderboard/leaderboard";
-import { Problem } from "@/lib/types/problem";
+import { LeaderboardUser } from "../../components/leaderboard/leaderboard";
+import { Problem } from "../../lib/types/problem";
 
 export async function getChallenge(id: string,userId:string): Promise<Problem> {
   const response = await fetch(`/api/getChallengeById?id=${id}`,{

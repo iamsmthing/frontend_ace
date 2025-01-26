@@ -1,20 +1,20 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
+import { Card } from "../../components/ui/card"
+import { Badge } from "../../components/ui/badge"
+import { Input } from "../../components/ui/input"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "../../components/ui/select"
 import { CheckCircle2 } from "lucide-react"
-import { LoadingOverlay } from "@/components/ui/loading-overlay"
-import { useAuth } from "@/contexts/auth-context"
-import { Leaderboard } from "@/components/leaderboard/leaderboard"
+import { LoadingOverlay } from "../../components/ui/loading-overlay"
+import { useAuth } from "../../contexts/auth-context"
+import { Leaderboard } from "../../components/leaderboard/leaderboard"
 import Link from "next/link"
 
 type Difficulty = "Easy" | "Medium" | "Hard";

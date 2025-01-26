@@ -1,4 +1,4 @@
-import { Card } from "@/components/ui/card"
+import { Card } from "../../components/ui/card"
 import { ChevronRight } from 'lucide-react'
 
 interface FocusAreaCardProps {

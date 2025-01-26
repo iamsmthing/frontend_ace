@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { getPeer, getPendingReviews,getChallengeReviewsOfUser } from '@/lib/api/peer';
+import { getPeer, getPendingReviews,getChallengeReviewsOfUser } from '../lib/api/peer';
 
 // Interface for the Challenge Data
 export interface Challenge {

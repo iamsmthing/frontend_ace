@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Problem } from '@/lib/types/problem';
-import { getChallenge } from '@/lib/api/challenges';
+import { Problem } from '../lib/types/problem';
+import { getChallenge } from '../lib/api/challenges';
 
 export function useChallenge(id: string,userId:string) {
   const [problem, setProblem] = useState<Problem | null>(null);

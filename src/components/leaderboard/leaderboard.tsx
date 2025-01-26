@@ -1,11 +1,11 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Card } from "@/components/ui/card"
+import { Card } from "../../components/ui/card"
 import { Trophy, Medal, Award } from "lucide-react"
-import '@/components/leaderboard/style.css'
-import { useLeaderboard } from "@/hooks/use-leaderboard"
-import { useAuth } from "@/contexts/auth-context"
+import '../../components/leaderboard/style.css'
+import { useLeaderboard } from "../../hooks/use-leaderboard"
+import { useAuth } from "../../contexts/auth-context"
 
 
 type Challenge = {

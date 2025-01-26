@@ -2,10 +2,10 @@
 
 import { useState } from "react"
 import { useRouter,useParams, notFound } from "next/navigation"
-import ProjectPageClient from "@/components/projects/project-page-client"
-import { useAuth } from "@/contexts/auth-context"
-import { LoadingOverlay } from "@/components/ui/loading-overlay"
-import { useProject } from "@/hooks/use-project"
+import ProjectPageClient from "../../../components/projects/project-page-client"
+import { useAuth } from "../../../contexts/auth-context"
+import { LoadingOverlay } from "../../../components/ui/loading-overlay"
+import { useProject } from "../../../hooks/use-project"
 
 export default function ProjectGuidePage() {
   const params = useParams();

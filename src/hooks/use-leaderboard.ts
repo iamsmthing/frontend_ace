@@ -1,9 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { fetchAllPosts, getAllComments } from "@/lib/api/posts";
-import { PostProject } from "@/lib/types/project";
-import { Comments } from "@/components/feed/comment-drawer";
-import { LeaderboardUser } from "@/components/leaderboard/leaderboard";
-import { getLeaderboard } from "@/lib/api/challenges";
+import { LeaderboardUser } from "../components/leaderboard/leaderboard";
+import { getLeaderboard } from "../lib/api/challenges";
 
 export function useLeaderboard(token: string) {
   const [leaderboard, setLeaderboard] = useState<LeaderboardUser[]>([]);

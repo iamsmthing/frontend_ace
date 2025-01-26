@@ -1,9 +1,8 @@
-import type { Problem } from "@/lib/types/problem"
+import type { Problem } from "../../lib/types/problem"
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { problems } from "@/lib/problems"
-import { markAsComplete } from "@/lib/api/challenges"
-import { useAuth } from "@/contexts/auth-context"
+import { Button } from "../../components/ui/button"
+import { markAsComplete } from "../../lib/api/challenges"
+import { useAuth } from "../../contexts/auth-context"
 import { toast } from "sonner"
 import { SubmitForReviewSidebar } from "./submit-for-review"
 

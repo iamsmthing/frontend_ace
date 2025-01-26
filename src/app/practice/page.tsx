@@ -1,7 +1,7 @@
-import ProblemsPage from "@/components/practice/problem-card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { problems } from "@/lib/problems"
+import ProblemsPage from "../../components/practice/problem-card"
+import { Badge } from "../../components/ui/badge"
+import { Button } from "../../components/ui/button"
+import { problems } from "../../lib/problems"
 import Link from "next/link"
 
 

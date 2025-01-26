@@ -1,9 +1,9 @@
 "use client"
 
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable"
-import { CodeEditor } from "@/components/practice/code-editor"
-import { ProblemDescription } from "@/components/practice/problem-description"
-import type { Problem } from "@/lib/types/problem"
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "../../components/ui/resizable"
+import { CodeEditor } from "../../components/practice/code-editor"
+import { ProblemDescription } from "../../components/practice/problem-description"
+import type { Problem } from "../../lib/types/problem"
 import { useEffect, useState } from "react";
 interface PracticeProblemClientProps {
   problem: Problem

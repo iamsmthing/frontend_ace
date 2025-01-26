@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import { Input } from "@/components/ui/input"
+import { Input } from "../../components/ui/input"
 import {
   Select,
   SelectGroup,
@@ -11,7 +11,7 @@ import {
   SelectLabel,
   SelectItem,
   SelectSeparator
-} from "@/components/ui/select"
+} from "../../components/ui/select"
 
 export default function SearchAndFilter() {
   const [search, setSearch] = useState('')

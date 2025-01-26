@@ -1,17 +1,17 @@
 "use client"
 
 import { useEffect, useState } from 'react'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Progress } from "@/components/ui/progress"
-import { Task, Review } from '@/lib/types/peer-review';
+import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card"
+import { Badge } from "../../components/ui/badge"
+import { Button } from "../../components/ui/button"
+import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar"
+import { Progress } from "../../components/ui/progress"
+import { Task, Review } from '../../lib/types/peer-review';
 import { useRouter } from 'next/navigation'
-import { usePendingReview } from '@/hooks/use-pending-review'
-import { useAuth } from '@/contexts/auth-context'
-import { calculatePercentage, getSubstring } from '@/lib/helpers/util-functions'
-import { LoadingOverlay } from '@/components/ui/loading-overlay'
+import { usePendingReview } from '../../hooks/use-pending-review'
+import { useAuth } from '../../contexts/auth-context'
+import { calculatePercentage, getSubstring } from '../../lib/helpers/util-functions'
+import { LoadingOverlay } from '../../components/ui/loading-overlay'
 import { toast } from 'sonner'
 import Image from 'next/image'
 

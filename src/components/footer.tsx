@@ -1,6 +1,6 @@
 'use client'
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Input } from "../components/ui/input"
+import { Button } from "../components/ui/button"
 import Link from "next/link"
 import { Github, Linkedin, Twitter, DiscIcon as Discord } from 'lucide-react'
 import { usePathname } from "next/navigation"

@@ -1,24 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Progress } from "@/components/ui/progress";
+import { Card, CardContent, CardHeader, CardTitle } from "../../../components/ui/card";
+import { Badge } from "../../../components/ui/badge";
+import { Button } from "../../../components/ui/button";
+import { Progress } from "../../../components/ui/progress";
 
 import { useRouter } from "next/navigation";
-import { usePendingReview } from "@/hooks/use-pending-review";
-import { useAuth } from "@/contexts/auth-context";
+import { useAuth } from "../../../contexts/auth-context";
 import {
   calculatePercentage,
   getSubstring,
-} from "@/lib/helpers/util-functions";
+} from "../../../lib/helpers/util-functions";
 import { toast } from "sonner";
 import Image from "next/image";
-import { Review, Task } from "@/lib/types/peer-review";
-import { LoadingOverlay } from "@/components/ui/loading-overlay";
-import { useMyChallengeStatus } from "@/hooks/use-mychallengeStatus";
+import { Review, Task } from "../../../lib/types/peer-review";
+import { LoadingOverlay } from "../../../components/ui/loading-overlay";
+import { useMyChallengeStatus } from "../../../hooks/use-mychallengeStatus";
 
 export default function PeerReviewsList() {
   const [tasks, setTasks] = useState<Task[]>([]);

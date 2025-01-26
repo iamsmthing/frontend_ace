@@ -1,9 +1,9 @@
 'use client';
-import PeerReviewsList from '@/components/peerReview/peer-reviews-list';
-import SearchAndFilter from '@/components/peerReview/search-and-filter';
-import NotificationCenter from '@/components/peerReview/notification-center';
+import PeerReviewsList from '../../components/peerReview/peer-reviews-list';
+import SearchAndFilter from '../../components/peerReview/search-and-filter';
+import NotificationCenter from '../../components/peerReview/notification-center';
 import { Metadata } from 'next'
-import { Button } from '@/components/ui/button';
+import { Button } from '../../components/ui/button';
 import { useRouter } from 'next/navigation';
 
 export default function PeerReviewsPage() {

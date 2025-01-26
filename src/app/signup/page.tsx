@@ -7,13 +7,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Image from 'next/image'
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { Card } from "../../components/ui/card";
+import { Label } from "../../components/ui/label";
 import { toast } from "sonner";
-import { useAuth } from "@/contexts/auth-context";
-import { LoadingOverlay } from "@/components/ui/loading-overlay";
+import { useAuth } from "../../contexts/auth-context";
+import { LoadingOverlay } from "../../components/ui/loading-overlay";
 import { Camera } from "lucide-react";
 
 const signUpSchema = z.object({
