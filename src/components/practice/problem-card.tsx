@@ -1,20 +1,20 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
+import { Card } from "../../components/ui/card"
+import { Badge } from "../../components/ui/badge"
+import { Input } from "../../components/ui/input"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "../../components/ui/select"
 import { CheckCircle2 } from "lucide-react"
-import { LoadingOverlay } from "../ui/loading-overlay"
-import { useAuth } from "@/contexts/auth-context"
-import { Leaderboard } from "../leaderboard/leaderboard"
+import { LoadingOverlay } from "../../components/ui/loading-overlay"
+import { useAuth } from "../../contexts/auth-context"
+import { Leaderboard } from "../../components/leaderboard/leaderboard"
 import Link from "next/link"
 
 type Difficulty = "Easy" | "Medium" | "Hard";
@@ -90,7 +90,7 @@ export default function ProblemsPage() {
     <div className="container py-8">
       <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0 mb-8">
         <Input
-          placeholder="Search problems..."
+          placeholder="Search challenges..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="md:w-[300px]"
@@ -108,36 +108,6 @@ export default function ProblemsPage() {
           </SelectContent>
         </Select>
       </div>
-
-      {/* <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {filteredProblems.map((problem) => (
-          <Card key={problem.id} className="p-6 relative">
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-2">
-          <h3 className="text-lg font-bold">{problem.title}</h3>
-          {problem.progress?.some(p => p.isCompleted) && (
-            <CheckCircle2 className="h-5 w-5 text-green-500" aria-label="Completed" />
-          )}
-        </div>
-        <Badge variant="secondary">{problem.category}</Badge>
-      </div>
-      <p className="text-sm text-muted-foreground mb-4">
-        {truncate(problem.description, 70)}
-      </p>
-      <div className="flex items-center justify-between">
-        <Badge className={difficultyColors[problem.difficulty]}>
-          {problem.difficulty}
-        </Badge>
-        <a 
-          href={`/practice/${problem.id}`} 
-          className="text-sm text-primary hover:underline"
-        >
-          {problem.progress?.some(p => p.isCompleted)? 'Review Solution →' : 'Solve Challenge →'}
-        </a>
-      </div>
-    </Card>
-        ))}
-      </div> */}
       <div className="flex flex-col lg:flex-row gap-8">
         <div className="flex-1">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">

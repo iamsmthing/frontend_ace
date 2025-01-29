@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
+import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar"
+import { Button } from "../components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,9 +10,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "../components/ui/dropdown-menu"
 import { LogOut, User, Settings } from 'lucide-react'
-import { useAuth } from '@/contexts/auth-context'
+import { useAuth } from '../contexts/auth-context'
 import { useRouter } from 'next/navigation'
 
 export function UserMenu() {

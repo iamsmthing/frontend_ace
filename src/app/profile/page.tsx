@@ -1,7 +1,7 @@
 "use client";
-import ProfilePage from "@/components/profile-page/ProfilePage";
-import { LoadingOverlay } from "@/components/ui/loading-overlay";
-import { useAuth } from "@/contexts/auth-context";
+import ProfilePage from "../../components/profile-page/ProfilePage";
+import { LoadingOverlay } from "../../components/ui/loading-overlay";
+import { useAuth } from "../../contexts/auth-context";
 import React from "react";
 
 const Profile = () => {

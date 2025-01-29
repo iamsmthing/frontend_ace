@@ -1,9 +1,9 @@
 "use client"
 
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Project } from "@/lib/types/project"
+import { Card } from "../../components/ui/card"
+import { Badge } from "../../components/ui/badge"
+import { Button } from "../../components/ui/button"
+import { Project } from "../../lib/types/project"
 import { ArrowRight, Github } from "lucide-react"
 
 interface ProjectCardProps {

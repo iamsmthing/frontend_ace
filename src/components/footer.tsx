@@ -1,6 +1,6 @@
 'use client'
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Input } from "../components/ui/input"
+import { Button } from "../components/ui/button"
 import Link from "next/link"
 import { Github, Linkedin, Twitter, DiscIcon as Discord } from 'lucide-react'
 import { usePathname } from "next/navigation"
@@ -8,9 +8,10 @@ import { usePathname } from "next/navigation"
 export function Footer() {
   const path=usePathname();
   console.log(path)
+  const condition=path=='/feed' || path=='/chat-ai'
   return (
     <>
-    {path!=='/feed' &&<footer className="bg-background border-t">
+    { !condition &&<footer className="bg-background border-t">
       <div className="container mx-auto px-4 py-12">
         <div  className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="md:col-span-2">

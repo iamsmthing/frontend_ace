@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Project} from '@/lib/types/project';
-import { getChallenge } from '@/lib/api/challenges';
-import { getProject } from '@/lib/api/projects';
+import { Project} from '../lib/types/project';
+import { getProject } from '../lib/api/projects';
 
 export function useProject(id: string) {
   const [project, setProject] = useState<Project | null>(null);

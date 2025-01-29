@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { fetchAllPosts, getAllComments } from "@/lib/api/posts";
-import { PostProject } from "@/lib/types/project";
-import { Comments } from "@/components/feed/comment-drawer";
+import { fetchAllPosts, getAllComments } from "../lib/api/posts";
+import { Comments } from "../components/feed/comment-drawer";
 
 export function useComments(token: string,postId:string) {
   const [comments, setComments] = useState<Comments[]>([]);

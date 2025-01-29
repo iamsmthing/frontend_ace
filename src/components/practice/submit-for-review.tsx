@@ -2,10 +2,10 @@
 
 import { useState, useRef } from 'react'
 import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
+import { Button } from '../../components/ui/button'
+import { Input } from '../../components/ui/input'
+import { Label } from '../../components/ui/label'
+import { Textarea } from '../../components/ui/textarea'
 
 import {
   Sheet,
@@ -14,12 +14,12 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet"
-import { ScrollArea } from "@/components/ui/scroll-area"
+} from "../../components/ui/sheet"
+import { ScrollArea } from "../../components/ui/scroll-area"
 import { X } from 'lucide-react'
-import { uploadToCloudinary } from '@/lib/helpers/upload'
-import { submitChallengeForReview } from '@/lib/api/peer'
-import { useAuth } from '@/contexts/auth-context'
+import { uploadToCloudinary } from '../../lib/helpers/upload'
+import { submitChallengeForReview } from '../../lib/api/peer'
+import { useAuth } from '../../contexts/auth-context'
 import { toast } from 'sonner'
 
 interface SubmitForReviewSidebarProps {

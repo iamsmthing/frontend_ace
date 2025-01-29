@@ -9,19 +9,19 @@ import TextStyle from '@tiptap/extension-text-style'
 import Color from '@tiptap/extension-color'
 import FontFamily from '@tiptap/extension-font-family'
 import CharacterCount from '@tiptap/extension-character-count'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "../../components/ui/button"
+import { Input } from "../../components/ui/input"
+import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar"
 import { ImageIcon, ListIcon, AtSignIcon, XIcon, HashIcon, BoldIcon, ItalicIcon, UnderlineIcon, HighlighterIcon, TypeIcon } from 'lucide-react'
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { useAuth } from '@/contexts/auth-context'
+} from "../../components/ui/select"
+import { useAuth } from '../../contexts/auth-context'
 
 const fontFamilies = [
   { label: 'Default', value: 'Inter' },
