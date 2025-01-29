@@ -12,10 +12,11 @@ const nextConfig: NextConfig = {
   reactStrictMode: false,
   output: "standalone",
   async rewrites() {
+    const proxyUrl = process.env.NODE_ENV === 'production' ? process.env.BACKEND_URL! : 'http://localhost:3002';
     return [
       {
         source: '/api/:path*', // Match any path starting with /api
-        destination: 'http://localhost:3002/:path*', // Proxy to backend with dynamic paths
+        destination: `${proxyUrl}/:path*`, // Proxy to backend with dynamic paths
       },
     ];
   },
@@ -42,5 +43,6 @@ const nextConfig: NextConfig = {
     return config
   },
 };
+
 
 export default nextConfig;

@@ -38,6 +38,9 @@ export default function Chat() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto";
+    }
     if (!prompt.trim() || isStreaming) return;
 
     const userMessage: Message = { role: "user", content: prompt };
@@ -68,6 +71,7 @@ export default function Chat() {
           ]);
         })
         .on("end", () => setIsStreaming(false));
+       
     } catch (error) {
       console.error("Error:", error);
       setIsStreaming(false);

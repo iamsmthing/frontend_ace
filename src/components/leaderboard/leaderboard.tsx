@@ -94,7 +94,7 @@ for (let i = 0; i < sortedUsers.length; i++) {
         <Trophy className="h-6 w-6 text-yellow-500" />
       </div>
 
-      <div className="space-y-4  h-[50vh] overflow-auto scrollbar-hidden  overflow-y-scroll">
+      <div className="space-y-4  min-h-[50%] overflow-auto scrollbar-hidden  overflow-y-scroll">
         {leaderboard.map((user, index) => (
           <div
             key={user.rank}
