@@ -6,13 +6,13 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+import { Card } from "../../components/ui/card";
+import { Label } from "../../components/ui/label";
 import { toast } from "sonner";
 import { useAuth } from "../../contexts/auth-context";
-import { LoadingOverlay } from "@/components/ui/loading-overlay";
+import { LoadingOverlay } from "../../components/ui/loading-overlay";
 
 const signInSchema = z.object({
   email: z.string().email("Invalid email address"),

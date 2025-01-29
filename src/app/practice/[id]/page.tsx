@@ -1,11 +1,10 @@
 "use client";
-import { getProblem, problems } from "@/lib/problems";
-import { PracticeProblemClient } from "@/components/practice/practice-problem-client";
+import { PracticeProblemClient } from "../../../components/practice/practice-problem-client";
 import { notFound, usePathname, useRouter } from "next/navigation";
-import { LoadingOverlay } from "@/components/ui/loading-overlay";
-import { useChallenge } from "@/hooks/use-challenge";
+import { LoadingOverlay } from "../../../components/ui/loading-overlay";
+import { useChallenge } from "../../../hooks/use-challenge";
 import { useParams } from "next/navigation";
-import { useAuth } from "@/contexts/auth-context";
+import { useAuth } from "../../../contexts/auth-context";
 import { useEffect } from "react";
 import { toast } from "sonner";
 

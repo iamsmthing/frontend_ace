@@ -1,19 +1,17 @@
 "use client"
 
 import { useState } from "react"
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Input } from "@/components/ui/input"
+import { Input } from "../../components/ui/input"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { ProjectCard } from "@/components/projects/project-card"
-import { projectsData } from "@/lib/projects-data"
-import { Button } from "@/components/ui/button"
+} from "../../components/ui/select"
+import { ProjectCard } from "../../components/projects/project-card"
+import { projectsData } from "../../lib/projects-data"
+import { Button } from "../../components/ui/button"
 import { BookOpen, Clock, TrendingUp } from "lucide-react"
 
 export default function ProjectsPage() {

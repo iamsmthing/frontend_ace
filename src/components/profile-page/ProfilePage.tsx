@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button } from "@/components/ui/button";
+import { Button } from "../../components/ui/button";
 import { MoreHorizontal } from "lucide-react";
-import { Card, CardContent } from '../ui/card';
-import { User } from '@/contexts/auth-context';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
+import { Card, CardContent } from '../../components/ui/card';
+import { User } from '../../contexts/auth-context';
+import { Avatar, AvatarFallback, AvatarImage } from '../../components/ui/avatar';
 
 const ProfilePage = ({user}:{user:User}) => {
   return (

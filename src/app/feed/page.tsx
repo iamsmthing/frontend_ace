@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { ProjectPost } from "@/components/feed/project-post";
-import { feedData } from "@/lib/feed-data";
+import { Card } from "../../components/ui/card";
+import { Input } from "../../components/ui/input";
+import { Button } from "../../components/ui/button";
+import { ProjectPost } from "../../components/feed/project-post";
+import { feedData } from "../../lib/feed-data";
 import {
   PlusCircle,
   TrendingUp,
@@ -21,22 +21,22 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Textarea } from "@/components/ui/textarea";
-import PostEditor from "@/components/feed/post-editor";
-import { useAuth } from "@/contexts/auth-context";
-import { LoadingOverlay } from "@/components/ui/loading-overlay";
+} from "../../components/ui/select";
+import { ScrollArea } from "../../components/ui/scroll-area";
+import { Textarea } from "../../components/ui/textarea";
+import PostEditor from "../../components/feed/post-editor";
+import { useAuth } from "../../contexts/auth-context";
+import { LoadingOverlay } from "../../components/ui/loading-overlay";
 import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { uploadToCloudinary } from "@/lib/helpers/upload";
-import { createPost, deletePost, fetchAllPosts, upvotePost } from "@/lib/api/posts";
-import { usePosts } from "@/hooks/use-posts";
-import { PostProject } from "@/lib/types/project";
+import { uploadToCloudinary } from "../../lib/helpers/upload";
+import { createPost, deletePost, fetchAllPosts, upvotePost } from "../../lib/api/posts";
+import { usePosts } from "../../hooks/use-posts";
 
 export default function FeedPage() {
   const [post, setPost] = useState<any>(feedData);
   const [sortBy, setSortBy] = useState("trending");
+  const[ clearContent,setClearContent]=useState(false);
   const { user } = useAuth();
   const [isPosting, setIsPosting] = useState(false);
   const token = user?.token as string;
@@ -63,6 +63,11 @@ export default function FeedPage() {
   const handleUpvote = async(postId: string) => {
 
       const upvote=await upvotePost(userId,postId,token)
+      if(upvote){
+        await refetch();
+        toast.success("Post upvoted successfully");
+      }
+
     // setPosts(
     //   post.map((post: any) =>
     //     post.id === postId ? { ...post, upvotes: post?.upvotes! + 1 } : post
@@ -89,27 +94,29 @@ export default function FeedPage() {
       const { title, images, content: description } = data;
       const uploadedUrl = await uploadToCloudinary(images);
       const newPost=await createPost(userId, title, description, uploadedUrl, user?.token);
-      // const allPosts = await fetchAllPosts(user?.token);
-      // console.log(allPosts);
-        // Prepend the new post to the existing posts
-      // Update the posts in the hook
-      // setPosts((prevPosts: any) => [newPost, ...prevPosts]);
-      // Refetch posts after a successful creation
       await refetch();
+      if(newPost.length>0){
+
+        toast.success('Post created successfully!');
+        setIsPosting(false);
+        setClearContent(true);
+      }
     
-      toast.success('Post created successfully!');
     } catch (error) {
       toast.error('Failed to create post.');
+      setIsPosting(false);
+      setIsPosting(false);
     }
     finally{
       setIsPosting(false);
+      setClearContent(false);
     }
   };
 
 
   const handleDeletePost = async (postId: string,token:string) => {
     try {  
-    await deletePost(postId,token);
+       await deletePost(postId,token);
       setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
       toast.success('Post deleted successfully!');
     } catch (error) {
@@ -150,6 +157,7 @@ export default function FeedPage() {
               <PostEditor
                 onSubmit={handlePostSubmit}
                 isLoading={isPosting}
+                clearContent={clearContent}
               />
             </div>
 

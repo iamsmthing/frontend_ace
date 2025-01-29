@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { fetchAllPosts } from "@/lib/api/posts";
-import { PostProject } from "@/lib/types/project";
+import { fetchAllPosts } from "../lib/api/posts";
+import { PostProject } from "../lib/types/project";
 
 export function usePosts(token: string) {
   const [posts, setPosts] = useState<PostProject[]>([]);

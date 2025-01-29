@@ -1,10 +1,10 @@
-import { PostProject, UserPost } from "../types/project";
+import { PostProject, UserPost } from "../../lib/types/project";
 
 
 
 
 
-export async function createPost(userId:string,title:string,description:string,imageUrl:string,token:string):Promise<UserPost>{
+export async function createPost(userId:string,title:string,description:string,imageUrl:string,token:string):Promise<UserPost[]>{
   const response=await fetch('/api/v1/api/post/createPost',{
     method: "POST",
     headers: { "Content-Type": "application/json" ,"Authorization": `Bearer ${token}`},
@@ -49,6 +49,30 @@ export const upvotePost=async(userId:string,postId:string,token:string)=>{
   });
   if(!response.ok){
     throw new Error('failed to upvote the post');
+  }
+  return response.json();
+}
+
+
+export async function getAllComments (token:string,id:string):Promise<any>{
+  const response=await fetch(`/api/v1/api/post/comments/${id}`,{
+    method: "GET",
+    headers: { "Content-Type": "application/json" ,"Authorization": `Bearer ${token}`},
+  });
+  if(!response.ok){
+    throw new Error('failed to fetch posts');
+  }
+  return response.json();
+}
+
+export const createComment=async(token:string,userId:string,postId:string,content:string,parentCommentId?:string|null)=>{
+  const response=await fetch('/api/v1/api/post/comments',{
+    method: "POST",
+    headers: { "Content-Type": "application/json" ,"Authorization": `Bearer ${token}`},
+    body: JSON.stringify({userId,postId,content,parentCommentId})
+  })
+  if(!response.ok){
+    throw new Error('failed to fetch posts');
   }
   return response.json();
 }

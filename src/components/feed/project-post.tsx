@@ -1,15 +1,15 @@
 "use client"
 
-import { Card } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { PostProject } from "@/lib/types/project"
-import { ThumbsUp, MessageSquare, Share2, MoreHorizontal } from "lucide-react"
-import { PostMenu } from "./post-menu"
-import { useAuth } from "@/contexts/auth-context"
-import { RenderHtml, timeAgo } from "@/lib/helpers/util-functions"
-
+import { Card } from "../../components/ui/card"
+import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar"
+import { Button } from "../../components/ui/button"
+import { PostProject } from "../../lib/types/project"
+import { ThumbsUp, MessageSquare, Share2, MoreHorizontal, ArrowUp } from "lucide-react"
+import { PostMenu } from "../../components/feed/post-menu"
+import { useAuth } from "../../contexts/auth-context"
+import { RenderHtml, timeAgo } from "../../lib/helpers/util-functions"
+import { useState } from "react"
+import { CommentDrawer } from "../../components/feed/comment-drawer"
 
 interface ProjectPostProps {
   post:PostProject
@@ -18,7 +18,7 @@ interface ProjectPostProps {
 }
 
 export function ProjectPost({ post, onUpvote ,onDelete}: ProjectPostProps) {
-
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const {user}=useAuth();
 
    const isUpvotedByCurrentUser=(upvote:any):Boolean=>{
@@ -62,17 +62,23 @@ export function ProjectPost({ post, onUpvote ,onDelete}: ProjectPostProps) {
       )}
 
       <div className="flex items-center gap-4 mt-4 pt-4 border-t">
-        <Button variant="ghost" size="sm" className={`h-8 ${isUpvotedByCurrentUser(post.upvotes) ?'bg-primary text-primary-foreground':''}`} onClick={onUpvote}>
-          <ThumbsUp className="h-4 w-4 mr-2 " />
+        <Button variant="ghost" size="sm" className={`h-8 ${isUpvotedByCurrentUser(post.upvotes) ?'bg-primary text-primary-foreground hover:scale-110 transition-transform duration-1000':''}`} onClick={onUpvote}>
+          <ArrowUp className="h-4 w-4 mr-2 " />
           {post.upvotes?.length}
         </Button>
-        <Button variant="ghost" size="sm" className="h-8">
+        <Button variant="ghost" size="sm" className="h-8" onClick={() => setIsDrawerOpen(true)}>
           <MessageSquare className="h-4 w-4 mr-2" />
-          {post.comments?post.comments:0}
+          {post?.comments?.length}
         </Button>
         <Button variant="ghost" size="sm" className="h-8 ml-auto">
           <Share2 className="h-4 w-4" />
         </Button>
+      {isDrawerOpen &&<CommentDrawer
+        isOpen={isDrawerOpen}
+        key={post.id}
+        onClose={() => setIsDrawerOpen(false)}
+        postId={post?.id}
+      />}
       </div>
     </Card>
   )

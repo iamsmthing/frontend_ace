@@ -45,3 +45,15 @@ export const RenderHtml = (htmlContent: string): JSX.Element => {
 };
 
 
+export function calculatePercentage(length: number): number {
+  if (length < 1) return 0; // Handle edge case for invalid lengths
+  if (length > 3) return 100; // Cap at 100%
+
+  return Math.round((length / 3) * 100);
+}
+
+
+export function getSubstring(input: string, length: number): string {
+  if (length < 0) return ""; // Handle invalid length
+  return input.slice(0, length)+"...";
+}

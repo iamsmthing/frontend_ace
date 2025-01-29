@@ -56,7 +56,7 @@ export interface Project {
     createdAt?:string
     updatedAt?:string
     upvotes?: Upvote[]
-    comments?: number
+    comments?: []
   }
 
   export interface UserPost{

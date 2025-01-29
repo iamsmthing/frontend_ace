@@ -1,10 +1,10 @@
-import type { Problem } from "@/lib/types/problem"
+import type { Problem } from "../../lib/types/problem"
 import { useState } from "react"
-import { Button } from "../ui/button"
-import { problems } from "@/lib/problems"
-import { markAsComplete } from "@/lib/api/challenges"
-import { useAuth } from "@/contexts/auth-context"
+import { Button } from "../../components/ui/button"
+import { markAsComplete } from "../../lib/api/challenges"
+import { useAuth } from "../../contexts/auth-context"
 import { toast } from "sonner"
+import { SubmitForReviewSidebar } from "./submit-for-review"
 
 interface ProblemDescriptionProps {
   problem: Problem
@@ -58,9 +58,15 @@ export function ProblemDescription({ problem }: ProblemDescriptionProps) {
           <span className="text-muted-foreground">
             Status: {isCompleted? 'Completed' : 'Not completed'}
           </span>
-          <Button onClick={toggleCompletion} variant="outline" className={isCompleted?`bg-green-500`:`bg-orange-500`}>
+          {/* <Button onClick={toggleCompletion} variant="outline" className={isCompleted?`bg-green-500`:`bg-orange-500`}>
             {isCompleted ? 'Mark as incomplete' : 'Mark as complete'}
-          </Button>
+          </Button> */}
+          <SubmitForReviewSidebar
+          challengeId={problem.id}
+          triggerButton={
+            <Button variant="outline">Submit Challenge</Button>
+          }
+        />
         </div>
       </div>
     </div>

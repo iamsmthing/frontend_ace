@@ -9,19 +9,19 @@ import TextStyle from '@tiptap/extension-text-style'
 import Color from '@tiptap/extension-color'
 import FontFamily from '@tiptap/extension-font-family'
 import CharacterCount from '@tiptap/extension-character-count'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "../../components/ui/button"
+import { Input } from "../../components/ui/input"
+import { Avatar, AvatarFallback, AvatarImage } from "../../components/ui/avatar"
 import { ImageIcon, ListIcon, AtSignIcon, XIcon, HashIcon, BoldIcon, ItalicIcon, UnderlineIcon, HighlighterIcon, TypeIcon } from 'lucide-react'
-import { cn } from "@/lib/utils"
+import { cn } from "../../lib/utils"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { useAuth } from '@/contexts/auth-context'
+} from "../../components/ui/select"
+import { useAuth } from '../../contexts/auth-context'
 
 const fontFamilies = [
   { label: 'Default', value: 'Inter' },
@@ -43,9 +43,10 @@ const colors = [
 interface PostEditorProps {
   onSubmit: (data: { title: string; content: string; images: string[] }) => void
   isLoading:boolean
+  clearContent:boolean
 }
 
-export default function PostEditor({ onSubmit,isLoading }: PostEditorProps) {
+export default function PostEditor({ onSubmit,isLoading,clearContent }: PostEditorProps) {
   const [title, setTitle] = useState('')
   const [images, setImages] = useState<string[]>([])
   const [charCount, setCharCount] = useState(0)
@@ -98,7 +99,8 @@ export default function PostEditor({ onSubmit,isLoading }: PostEditorProps) {
         images
       })
        // Reset fields if not loading
-    if (!isLoading) {
+    if (clearContent) {
+      console.log(clearContent)
         setTitle('');
         setImages([]);
         editor.commands.clearContent(); // Clear the editor content
@@ -141,7 +143,7 @@ export default function PostEditor({ onSubmit,isLoading }: PostEditorProps) {
         placeholder="What are you working on...."
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        className="bg-transparent border-none text-lg placeholder:text-zinc-500"
+        className="bg-transparent border-none text-lg px-0  placeholder:text-zinc-500"
       />
 
       {editor && (

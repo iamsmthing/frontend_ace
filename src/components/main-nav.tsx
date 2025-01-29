@@ -1,21 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { BookOpenCheck, CodeIcon, MoonIcon, SunIcon } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { cn } from "../lib/utils";
+import { Button } from "../components/ui/button";
+import { BookOpenCheck, CodeIcon, MessagesSquare, MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { useAuth } from "@/contexts/auth-context";
-import { UserMenu } from "./user-menu";
+import { useAuth } from "../contexts/auth-context";
+import { UserMenu } from "../components/user-menu";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "./ui/navigation-menu";
-import { ModeToggle } from "./mode-toggle";
+import { ModeToggle } from "../components/mode-toggle";
 
 export function MainNav() {
   const pathname = usePathname();
   const { user } = useAuth();
   const { setTheme, theme } = useTheme();
+  const router=useRouter();
+  const handleClick=()=>{
+       router.push('/chat-ai');
+  }
 
   return (
     <header className="px-6 sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -47,7 +50,7 @@ export function MainNav() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              <NavigationMenuItem>
+              {/* <NavigationMenuItem>
                 <NavigationMenuTrigger>Prepare</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="w-[500px] p-4">
@@ -73,7 +76,7 @@ export function MainNav() {
                     </Link>
                   </div>
                 </NavigationMenuContent>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
             </NavigationMenuList>
           </NavigationMenu>
           <nav className="flex items-center space-x-6 text-sm font-medium">
@@ -142,6 +145,8 @@ export function MainNav() {
             <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             <span className="sr-only">Toggle theme</span>
           </Button> */}
+              <MessagesSquare className="cursor-pointer" onClick={handleClick} />
+
            <ModeToggle/>
             <UserMenu/>
           

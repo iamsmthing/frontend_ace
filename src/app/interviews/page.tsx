@@ -1,9 +1,9 @@
-import { Card } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
+import { Card } from "../../components/ui/card"
+import { Progress } from "../../components/ui/progress"
 import { ChevronRight,Zap, Star, Accessibility, FileCode, FormInput, Grid, Library, RefreshCw } from 'lucide-react'
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { Button } from "../../components/ui/button"
+import { ScrollArea } from "../../components/ui/scroll-area"
 import { LayoutGrid, BookOpen, Code2, Clock, BookMarked, Menu } from 'lucide-react'
 
 export default function DashboardPage() {
