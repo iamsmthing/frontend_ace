@@ -47,7 +47,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // Set user if data exists
       setUser({ username, email, token ,id,imageUrl});
     } else {
-      router.push("/signin"); // Redirect to login page
+      router.push("/"); // Redirect to login page
     }
 
     setIsLoading(false); // Mark initialization complete

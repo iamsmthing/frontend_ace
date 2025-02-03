@@ -4,12 +4,14 @@ import { type FormEvent, useState, useEffect, useRef } from "react";
 import { ChatCompletionStream } from "together-ai/lib/ChatCompletionStream";
 import { Button } from "../../components/ui/button";
 import { Textarea } from "../../components/ui/textarea";
-import { Bot, Send, User, Loader2 } from "lucide-react";
+import { Bot, Send, User, Loader2, Settings } from "lucide-react";
 import { cn } from "../../lib/utils";
 import MarkdownRenderer from "../../components/chat-ai/markdown-renderer";
 import { useAuth } from "../../contexts/auth-context";
 import { Avatar, AvatarFallback } from "../../components/ui/avatar";
 import { AvatarImage } from "@radix-ui/react-avatar";
+import { useRouter } from "next/navigation";
+import '../../components/leaderboard/style.css'
 
 type Message = {
   role: "user" | "assistant";
@@ -24,6 +26,7 @@ export default function Chat() {
   const formRef = useRef<HTMLFormElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const {user}=useAuth();
+  const router=useRouter();
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -78,12 +81,17 @@ export default function Chat() {
     }
   }
 
+  const toSettings=()=>{
+    router.push('/chat-ai/settings')
+  }
+
   return (
-    <div className="flex flex-col h-[90vh]  mx-4 bg-background">
-      <header className="border-b p-4">
-        <h1 className="text-2xl font-bold">AI Chat</h1>
+    <div className="flex flex-col h-[90vh]   mx-4 bg-background">
+      <header className="flex justify-between cursor-pointer border-b px-4 py-2">
+        <h1 className="text-xl font-bold">AI Chat</h1>
+        <Settings className="h-4 w-4" onClick={toSettings}/>
       </header>
-      <div className="flex-1 overflow-y-auto p-4 space-y-6">
+      <div className="flex-1 overflow-y-auto p-4 scrollbar-hidden space-y-6">
        
         {messages.map((message, i) => (
           <div
@@ -122,7 +130,7 @@ export default function Chat() {
           </div>
           
         ))}
-        {messages.length==0 &&<div className="flex my-0 mx-auto flex-row w-fit  h-full items-center content-center flex-wrap"><h1 className="text-3xl">What can I help you with?</h1></div>}
+        {messages.length==0 &&<div className="flex flex-col my-auto mx-auto   w-fit  h-full items-center justify-center flex-wrap"><h1 className="text-3xl">What can I help you with?</h1><p className="text-sm">Powered by Meta Llama-3.3 70B</p></div>}
         {isStreaming && (
           <div className="flex items-center gap-4 mr-0 ">
             <div className="w-8 h-8 rounded-full flex items-center justify-center bg-primary text-primary-foreground">
@@ -147,7 +155,7 @@ export default function Chat() {
               setPrompt(e.target.value);
               adjustTextareaHeight();
             }}
-            placeholder="Send a message..."
+            placeholder="Ask AI..."
             className="flex-1 min-h-[2.5rem] max-h-[200px] resize-none"
             rows={1}
             onKeyDown={(e) => {

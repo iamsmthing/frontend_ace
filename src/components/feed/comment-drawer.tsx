@@ -135,7 +135,7 @@ const handleSubmitReply = async(e: React.FormEvent) => {
             <form onSubmit={handleSubmitReply} className="mt-2 flex items-start gap-2">
               <Avatar className="h-6 w-6 border">
                 <AvatarImage src={currentUser?.imageUrl} alt="Your avatar" />
-                <AvatarFallback>YO</AvatarFallback>
+                <AvatarFallback>{currentUser?.username.charAt(0)}</AvatarFallback>
               </Avatar>
               <Textarea
                 placeholder="Write a reply..."

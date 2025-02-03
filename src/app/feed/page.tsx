@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Card } from "../../components/ui/card";
 import { Input } from "../../components/ui/input";
 import { Button } from "../../components/ui/button";
@@ -44,7 +44,7 @@ export default function FeedPage() {
   const userId = user?.id;
   const router = useRouter();
   const pathname = usePathname();
-  const [selectedTech, setSelectedTech] = useState("all");
+
 
   // Redirect to login page if no user is found
   useEffect(() => {
@@ -54,6 +54,8 @@ export default function FeedPage() {
       router.push(`/signin`);
       toast.error("Sign in to continue");
     }
+
+   
   }, [userId, router]);
 
   if (isLoading||!userId) {
@@ -124,30 +126,62 @@ export default function FeedPage() {
     }
   };
 
-  return (
-    <div className="grid grid-cols-[240px_1fr_300px] h-screen bg-background">
-      {/* Left Sidebar */}
-      <ScrollArea className="h-screen border-r">
-        <div className="p-4">
-          <nav className="space-y-4">
-            <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-accent">
-              <HomeIcon className="h-5 w-5" />
-              <span>Scroll</span>
-            </div>
-            <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-accent">
-              <SparklesIcon className="h-5 w-5" />
-              <span>Spotlight</span>
-            </div>
-            <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-accent">
-              <FileTextIcon className="h-5 w-5" />
-              <span>Articles</span>
-            </div>
-          </nav>
+
+
+  const RightSideBar=()=>{
+
+    return (
+    <div className="p-4">
+    <div className="rounded-lg border p-4 mb-6">
+      <h3 className="font-semibold mb-2">
+        🌟 Today's Most Upvoted Post!
+      </h3>
+      <div className="rounded-lg overflow-hidden mb-2">
+      </div>
+      <h4 className="font-medium">Featured Post</h4>
+      <p className="text-sm text-muted-foreground">
+        Post description goes here
+      </p>
+    </div>
+
+    <div>
+      <h3 className="font-semibold mb-4">Active Discussions</h3>
+      <div className="space-y-4">{/* Add discussion items here */}</div>
+    </div>
+  </div>
+    )
+  }
+
+  const LeftSidebar=()=>{
+    return (
+      <div className="p-4">
+      <nav className="space-y-4">
+        <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-accent">
+          <HomeIcon className="h-5 w-5" />
+          <span>Scroll</span>
         </div>
+        <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-accent">
+          <SparklesIcon className="h-5 w-5" />
+          <span>Spotlight</span>
+        </div>
+        <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-accent">
+          <FileTextIcon className="h-5 w-5" />
+          <span>Articles</span>
+        </div>
+      </nav>
+    </div>
+    )
+  }
+
+  return (
+    <div className="flex flex-col md:grid md:grid-cols-[240px_1fr] lg:grid-cols-[240px_1fr_300px] h-screen bg-background">
+      {/* Left Sidebar */}
+      <ScrollArea className="hidden md:block h-screen border-r">
+        <LeftSidebar/>
       </ScrollArea>
 
       {/* Main Feed */}
-      <ScrollArea className="h-screen">
+      <ScrollArea className="h-[calc(100vh-4rem)] md:h-screen">
         <div className="p-4 max-w-3xl mx-auto">
           <div className="stop-0 bg-background z-10 pb-4 space-y-4">
             <div className="flex items-center gap-4">
@@ -188,31 +222,10 @@ export default function FeedPage() {
       </ScrollArea>
 
       {/* Right Sidebar */}
-      <ScrollArea className="h-screen border-l">
-        <div className="p-4">
-          <div className="rounded-lg border p-4 mb-6">
-            <h3 className="font-semibold mb-2">
-              🌟 Today's Staff Picked Project!
-            </h3>
-            <div className="rounded-lg overflow-hidden mb-2">
-              {/* <img
-                src="/placeholder.svg"
-                alt="Featured Project"
-                className="w-full h-32 object-cover"
-              /> */}
-            </div>
-            <h4 className="font-medium">Featured Project Title</h4>
-            <p className="text-sm text-muted-foreground">
-              Project description goes here
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-semibold mb-4">Active Discussions</h3>
-            <div className="space-y-4">{/* Add discussion items here */}</div>
-          </div>
-        </div>
+      <ScrollArea className="hidden lg:block h-screen border-l">
+        <RightSideBar/>
       </ScrollArea>
+      
     </div>
   );
 }

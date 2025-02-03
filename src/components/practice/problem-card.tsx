@@ -123,7 +123,7 @@ export default function ProblemsPage() {
         <Badge variant="secondary">{problem.category}</Badge>
       </div>
       <p className="text-sm text-muted-foreground mb-4">
-        {truncate(problem.description, 70)}
+        {truncate(problem.description, 100)}
       </p>
       <div className="flex items-center justify-between">
         <Badge className={difficultyColors[problem.difficulty]}>
@@ -138,6 +138,18 @@ export default function ProblemsPage() {
       </div>
     </Card>
         ))}
+        <Card key={1} className="p-6 relative">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2">
+          <h3 className="text-lg font-bold">More...?</h3>
+        </div>
+       
+      </div>
+      <p className="text-sm text-fuchsia-700 mb-4">
+        {truncate('Stay Tuned.More Challenges are on the way.Also,we are coming with a feature where even you can post a challenge to be listed here.', 200)}
+      </p>
+     
+    </Card>
       </div> 
         </div>
 

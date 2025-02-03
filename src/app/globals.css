@@ -4,7 +4,9 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  
 }
+
 
 
 @layer base {
@@ -125,8 +127,21 @@ body {
   --input: 30 30% 75%;               /* Muted brown-gray input fields */
   --ring: 25 50% 50%;                /* Golden-brown ring */
   }
+  .animate-bounce-horizontal {
+    animation: bounce-horizontal 2s infinite;
+  }
+  
+  @keyframes bounce-horizontal {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(7px); /* adjust the distance as needed */
+    }
+  }
 
 }
+
 
 @layer base {
   * {

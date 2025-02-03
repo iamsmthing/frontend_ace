@@ -20,8 +20,8 @@ export default function NotificationCenter() {
           {/* {notifications.length > 0 && (
             <span className="absolute top-0 right-0 h-3 w-3 bg-red-500 rounded-full" />
           )} */}
-          <Badge className="absolute top-[5.5rem] right-[10.75rem] h-5 w-5 rounded-full p-0 flex items-center justify-center">
-            8
+          <Badge className="absolute top-[5.5rem] right-[11rem] h-4 w-4 rounded-full p-0 flex items-center justify-center">
+            
           </Badge>
         </Button>
       </PopoverTrigger>
