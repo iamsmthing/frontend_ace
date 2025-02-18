@@ -39,6 +39,7 @@ export const getLeaderboard=async(token:string):Promise<LeaderboardUser[]>=>{
     method:'GET',
     headers: { "Content-Type": "application/json" ,"Authorization": `Bearer ${token}`},
   })
+  console.log(response.status)
   if(!response.ok){
     throw new Error('failed to fetch leaderboard');
   }

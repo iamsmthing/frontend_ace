@@ -16,6 +16,9 @@ import { LoadingOverlay } from "../../components/ui/loading-overlay"
 import { useAuth } from "../../contexts/auth-context"
 import { Leaderboard } from "../../components/leaderboard/leaderboard"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { useRouter } from "next/navigation"
+import { toast } from "sonner"
 
 type Difficulty = "Easy" | "Medium" | "Hard";
 
@@ -53,7 +56,9 @@ export default function ProblemsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [isLoading, setIsLoading] = useState(true);
   const [problems, setProblems] = useState<Problem[]>([])
-  const {user}=useAuth();
+  const {user,logout}=useAuth();
+  const pathname = usePathname();
+  const router=useRouter();
 
   useEffect(() => {
     async function fetchChallenges() {
@@ -64,8 +69,18 @@ export default function ProblemsPage() {
           headers: { "Content-Type": "application/json","Authorization": `Bearer ${user?.token}` },
           body: JSON.stringify({userID:user?.id}),
         })
-        const data = await response.json()
-        setProblems(data.problems || [])
+        const data = await response.json();
+        if(data.message==='jwt expired'){
+            logout();
+            const redirectUrl = pathname;
+            localStorage.setItem("lastVisited", redirectUrl);
+            router.push(`/signin`);
+            toast.error("Sign in to continue");
+            return;
+          
+        }
+        console.log(data)
+        setProblems(data.problems)
       } catch (error) {
         console.error("Failed to fetch challenges:", error)
       }

@@ -1,3 +1,5 @@
+'use client'
+
 import { Card } from "../../components/ui/card"
 import { Progress } from "../../components/ui/progress"
 import { ChevronRight,Zap, Star, Accessibility, FileCode, FormInput, Grid, Library, RefreshCw } from 'lucide-react'
@@ -5,8 +7,15 @@ import Link from "next/link"
 import { Button } from "../../components/ui/button"
 import { ScrollArea } from "../../components/ui/scroll-area"
 import { LayoutGrid, BookOpen, Code2, Clock, BookMarked, Menu } from 'lucide-react'
+import { useRouter } from "next/navigation"
 
 export default function DashboardPage() {
+    const router=useRouter();
+
+  const handleNavigate=(id:string)=>{
+          router.push(`/interviews/${id}`)  
+  }
+
   return (
     <div className="min-h-screen bg-background">
 
@@ -228,6 +237,7 @@ export default function DashboardPage() {
         <div className="grid gap-4 md:grid-cols-2">
           {[
             {
+              id:'1',
               icon: "/js-logo.png",
               title: "JavaScript",
               badge: "TypeScript supported",
@@ -235,42 +245,49 @@ export default function DashboardPage() {
               progress: 20
             },
             {
+              id:'2',
               icon: "/react-logo.png",
               title: "React",
               questions: "1/58 questions",
               progress: 15
             },
             {
+              id:'3',
               icon: "/angular-logo.png",
               title: "Angular",
               questions: "1/32 questions",
               progress: 10
             },
             {
+              id:'4',
               icon: "/vue-logo.png",
               title: "Vue",
               questions: "1/31 questions",
               progress: 10
             },
             {
+              id:'5',
               icon: "/svelte-logo.png",
               title: "Svelte",
               questions: "1/28 questions",
               progress: 5
             },
             {
+              id:'6',
               icon: "/css-logo.png",
               title: "CSS",
               questions: "1/74 questions",
               progress: 8
             },
             {
+              id:'7',
               icon: "/html-logo.png",
               title: "HTML",
               questions: "1/90 questions",
               progress: 12
             },
             {
+              id:'8',
               icon: "/ts-logo.png",
               title: "TypeScript",
               questions: "2/192 questions",
@@ -278,6 +295,7 @@ export default function DashboardPage() {
             }
           ].map((framework) => (
             <Card 
+            onClick={()=>handleNavigate(framework.id)}
               key={framework.title} 
               className="p-6 hover:bg-accent/50 transition-colors cursor-pointer group"
             >

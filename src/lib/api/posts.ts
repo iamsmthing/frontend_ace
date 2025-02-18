@@ -33,6 +33,9 @@ export async function fetchAllPosts(token:string):Promise<any>{
       method: "GET",
       headers: { "Content-Type": "application/json" ,"Authorization": `Bearer ${token}`},
     });
+    if(response.status===401){
+      return {message:"JWT Expired",status:'401'};
+    }
     if(!response.ok){
       throw new Error('failed to fetch posts');
     }

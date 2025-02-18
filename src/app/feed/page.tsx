@@ -52,7 +52,6 @@ export default function FeedPage() {
       const redirectUrl = pathname;
       localStorage.setItem("lastVisited", redirectUrl);
       router.push(`/signin`);
-      toast.error("Sign in to continue");
     }
 
    
